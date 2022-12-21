@@ -5,18 +5,22 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.7</version>
+		<version>3.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>java-docs-spring-hello-world</artifactId>
+	<artifactId>firstbluetomato_1</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>java-docs-spring-hello-world</name>
+	<name>firstbluetomato_1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -28,9 +32,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-  			<groupId>io.jsondb</groupId>
-  			<artifactId>jsondb-core</artifactId>
-  			<version>1.0.106</version>
+ 			 <groupId>io.jsondb</groupId>
+ 			 <artifactId>jsondb-core</artifactId>
+ 			 <version>1.0.106</version>
 		</dependency>
 	</dependencies>
 

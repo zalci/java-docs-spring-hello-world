@@ -11,15 +11,15 @@ import io.jsondb.crypto.ICipher;
 public class DBManager {
 	private static String dbPath;
 	private static JsonDBTemplate jsonDBTemplate;
-	
+
 	public static void initDB() throws IOException, GeneralSecurityException {
 		if (jsonDBTemplate == null) {
 		String currentPath = new java.io.File(".").getCanonicalPath();
-		
+
 		dbPath=currentPath+"/db";
 		File f = new File(currentPath+"/db");
 		f.mkdir();
-		
+
 		//Actual location on disk for database files, process should have read-write permissions to this folder
 		String dbFilesLocation = dbPath ;
 
@@ -31,10 +31,10 @@ public class DBManager {
 
 		jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, baseScanPackage, cipher);
 		}
-	}	
-	
+	}
+
 	public static String getDBPath() {
 		return dbPath;
 	}
-	
+
 }
