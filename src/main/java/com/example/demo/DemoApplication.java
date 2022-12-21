@@ -15,6 +15,9 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
-		return "Hello Zalci & Co. World, na ná TEST TEST2 TEST3!";
+		String currentPath = new java.io.File(".").getCanonicalPath();
+		 //System.out.println("Current dir:" + currentPath);
+
+		return currentPath;
 	}
 }
