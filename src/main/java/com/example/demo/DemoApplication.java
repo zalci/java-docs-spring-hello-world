@@ -18,6 +18,6 @@ public class DemoApplication {
 		String currentPath = new java.io.File(".").getCanonicalPath();
 		 //System.out.println("Current dir:" + currentPath);
 
-		return currentPath;
+		return "Hello Zalci & Co. World, na ná TEST TEST2 TEST3!";
 	}
 }
