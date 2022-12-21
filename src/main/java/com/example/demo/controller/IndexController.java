@@ -16,16 +16,36 @@ import com.example.demo.model.Instance;
 public class IndexController {
 
 	@GetMapping(path="/")
-	public String index(Model model) throws IOException, GeneralSecurityException {
-		DBManager.initDB();
-		model.addAttribute("instances",DBManager.getAllInstances());
+	public String index(Model model) {
+		try {
+			DBManager.initDB();
+			model.addAttribute("instances",DBManager.getAllInstances());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			return e.getMessage();
+		} catch (GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			return e.getMessage();
+		}		
 		return "index";
 	}
 
 	@PostMapping(path="/insert")
-	public String insert(@ModelAttribute Instance instance) throws IOException, GeneralSecurityException {
+	public String insert(@ModelAttribute Instance instance){
 		System.out.println(instance.toString());
-		DBManager.insertInstance(instance);
+		try {
+			DBManager.insertInstance(instance);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			return e.getMessage();
+		} catch (GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			return e.getMessage();
+		}
 		return "index";
 	}
 
