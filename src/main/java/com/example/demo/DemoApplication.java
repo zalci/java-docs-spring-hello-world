@@ -16,9 +16,16 @@ public class DemoApplication {
 
 	@RequestMapping("/")
 	String sayHello() {
-		String currentPath = new java.io.File(".").getCanonicalPath();
+		String currentPath;
+		try {
+			currentPath = new java.io.File(".").getCanonicalPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			return e.getCause().getMessage();
+		}
 		//System.out.println("Current dir:" + currentPath);
 		//return "Hello Zalci & Co. World, na ná TEST TEST2 TEST3!";
 		return currentPath;
 	}
+
 }
