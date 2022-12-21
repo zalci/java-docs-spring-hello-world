@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.io.File;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.List;
 
 import io.jsondb.JsonDBTemplate;
 import io.jsondb.crypto.Default1Cipher;
@@ -30,11 +31,27 @@ public class DBManager {
 		ICipher cipher = new Default1Cipher("1r8+24pibarAWgS85/Heeg==");
 
 		jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, baseScanPackage, cipher);
+		//jsonDBTemplate.createCollection(Instance.class);
 		}
 	}
 
-	public static String getDBPath() {
+	public static String getDBPath() throws IOException, GeneralSecurityException {
+		initDB();
 		return dbPath;
+	}
+
+	public static void insertInstance(Instance instance) throws IOException, GeneralSecurityException {
+		initDB();
+		jsonDBTemplate.insert(instance);
+	}
+
+	public static List<Instance> getAllInstances() throws IOException, GeneralSecurityException {
+		initDB();
+		//String jxQuery = "/.[not(privateKey='')]";
+		//List<Instance> instances = jsonDBTemplate.find(jxQuery, Instance.class);
+		List<Instance> instances = jsonDBTemplate.findAll(Instance.class);
+		return instances;
+
 	}
 
 }

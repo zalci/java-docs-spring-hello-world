@@ -1,10 +1,30 @@
 <!doctype html>
 <html>
   <head>
-    <title>This is the title of the webpage!</title>
+    <title>INDEX</title>
   </head>
   <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+    <p>INDEX</p>
+  
+  
+  <p>Instance list</p>
+  
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Host Name</th>
+        <th>Private Key</th>
+      </tr>
+      <tr th:each="instance : ${instances}">
+        <td th:text="${instance.id}"></td>
+        <td th:text="${instance.hostname}"></td>
+        <td th:text="${instance.privateKey}"></td>
+      </tr>
+    </table>
+  
+  
+  
+  <p>Cretae New Instance</p>
   
   <form action="insert" method="post">
   
@@ -14,6 +34,9 @@
   
   <label for="hostname"> Host Name :</label> <br/>
   <input type="text" name="hostname"/> <br/>
+  
+  <label for="privateKey"> Private Key :</label> <br/>
+  <input type="text" name="privateKey"/> <br/>
   
   <button type="submit"> Insert</button>
   
