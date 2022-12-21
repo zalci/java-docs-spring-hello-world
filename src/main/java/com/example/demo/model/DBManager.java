@@ -31,7 +31,11 @@ public class DBManager {
 		ICipher cipher = new Default1Cipher("1r8+24pibarAWgS85/Heeg==");
 
 		jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, baseScanPackage, cipher);
-		//jsonDBTemplate.createCollection(Instance.class);
+		try{
+			jsonDBTemplate.createCollection(Instance.class);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		}
 	}
 
