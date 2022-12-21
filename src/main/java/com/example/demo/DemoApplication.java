@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.io.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,8 @@ public class DemoApplication {
 	@RequestMapping("/")
 	String sayHello() {
 		String currentPath = new java.io.File(".").getCanonicalPath();
-		 //System.out.println("Current dir:" + currentPath);
-
-		return "Hello Zalci & Co. World, na ná TEST TEST2 TEST3!";
+		//System.out.println("Current dir:" + currentPath);
+		//return "Hello Zalci & Co. World, na ná TEST TEST2 TEST3!";
+		return currentPath;
 	}
 }
